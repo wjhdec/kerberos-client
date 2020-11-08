@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group 'pers.wjh.krb.client'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+[compileJava, compileTestJava, javadoc]*.options*.encoding = "UTF-8"
+
+repositories {
+    mavenLocal()
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+}
+
+dependencies {
+    testImplementation(platform('org.junit:junit-bom:5.7.0'))
+    testImplementation('org.junit.jupiter:junit-jupiter')
+
+    implementation "org.apache.httpcomponents:httpclient:4.4.1"
+    implementation "org.apache.httpcomponents:httpmime:4.4.1"
+    compile "com.google.code.gson:gson:2.8.6"
+}
+
+test {
+    useJUnitPlatform()
+}
